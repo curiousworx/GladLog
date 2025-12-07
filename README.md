@@ -17,7 +17,11 @@ GladLog makes the following assumptions:
 
 1. Copy the GladLog class to your project
 2. In your desired subsystem(s):
-    1. Import the GladLog class > import frc.robot.util.GladLog;
-    2. In the subsystem constructor, create an instance of the GladLog class > GladLog logger = GladLog.getInstance();
-    3. In the subsystem constructor, register motor(s) > logger.registerTalonFX("Intake/Roller", intakeMotor);
-3. In Robot.java, within robotPeriodic() make a call like this > GladLog.getInstance().logAll();
+    1. Import the GladLog class 
+    > import frc.robot.util.GladLog;
+    2. In the subsystem constructor, create an instance of the GladLog class 
+    > GladLog logger = GladLog.getInstance();
+    3. In the subsystem constructor, register motor(s) 
+    > logger.registerTalonFX("Intake/Roller", intakeMotor);
+3. In Robot.java, within robotPeriodic() make a call like this 
+> GladLog.getInstance().logAll();
