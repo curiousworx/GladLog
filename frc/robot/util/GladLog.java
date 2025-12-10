@@ -3,7 +3,9 @@ package frc.robot.util;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.littletonrobotics.junction.Logger;
+import edu.wpi.first.units.measure.Current;
+
+import dev.doglog.DogLog;
 
 import com.ctre.phoenix6.BaseStatusSignal;
 import com.ctre.phoenix6.StatusSignal;
@@ -21,8 +23,8 @@ public final class GladLog {
     private static final class TalonFxEntry {
         final String name;
         final TalonFX motor;
-        final StatusSignal<Double> statorCurrent;
-        final StatusSignal<Double> supplyCurrent;
+        final StatusSignal<Current> statorCurrent;
+        final StatusSignal<Current> supplyCurrent;
 
         TalonFxEntry(String name, TalonFX motor) {
             this.name = name;
@@ -85,8 +87,8 @@ public final class GladLog {
             double stator = e.statorCurrent.getValueAsDouble();
             double supply = e.supplyCurrent.getValueAsDouble();
 
-            Logger.recordOutput("Current/" + e.name + "/Stator", stator);
-            Logger.recordOutput("Current/" + e.name + "/Supply", supply);
+            DogLog.log("Current/" + e.name + "/Stator", stator);
+            DogLog.log("Current/" + e.name + "/Supply", supply);
         }
     }
 }
